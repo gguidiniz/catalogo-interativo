@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { getProductById, Product } from '@/src/services/products.service';
 import { Ionicons } from '@expo/vector-icons';
 import { styles } from './_id.styles';
@@ -50,6 +50,8 @@ export default function ProductDetailsScreen() {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen options={{ headerShown: false }} />
+      
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color="#111827" />
