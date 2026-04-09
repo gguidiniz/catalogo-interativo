@@ -13,6 +13,8 @@ export const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 140,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
   info: {
     padding: 12,
