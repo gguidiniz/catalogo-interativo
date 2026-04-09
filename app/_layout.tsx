@@ -1,24 +1,37 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { useEffect } from 'react';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import { Provider, useSelector } from 'react-redux';
+import { store, RootState } from '@/src/store';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+function ProtectedLayout() {
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const segments = useSegments();
+  const router = useRouter();
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  useEffect(() => {
+    const inAuthGroup = segments[0] === '(tabs)';
+    
+    if (isAuthenticated && !inAuthGroup) {
+      router.replace('/(tabs)/men');
+    } else if (!isAuthenticated && inAuthGroup) {
+      router.replace('/login');
+    }
+  }, [isAuthenticated, segments]);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
+    <Stack>
+      <Stack.Screen name="login" options={{ headerShown: false, animation: 'fade' }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
+    </Stack>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <Provider store={store}>
+      <ProtectedLayout />
       <StatusBar style="auto" />
-    </ThemeProvider>
+    </Provider>
   );
 }
