@@ -31,6 +31,7 @@ function ProtectedLayout() {
     <Stack>
       <Stack.Screen name="login" options={{ headerShown: false, animation: 'fade' }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'fade' }} />
+      <Stack.Screen name="product/[id]" options={{ headerShown: false, animation: 'fade' }} />
     </Stack>
   );
 }
