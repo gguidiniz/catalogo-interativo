@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '@/src/store/slices/authSlice';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { styles } from './login.styles';
+import { styles } from './_login.styles';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
