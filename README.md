@@ -16,6 +16,9 @@ A aplicação foi construída com base nos métodos de interface mobile do ecoss
 
 ---
 
+> 📄 **Nota:** O PDF contendo as capturas de tela completas e uma breve explicação das funcionalidades solicitadas está anexado na pasta `/docs` deste repositório.
+
+---
 ## 🚀 Tecnologias Utilizadas
 
 - **React Native & Expo:** Base estrutural do App usando as capacidades de construção de código único para rodar em Mobile Nativo local via Expo Go.
