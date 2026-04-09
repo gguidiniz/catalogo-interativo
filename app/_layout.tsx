@@ -13,14 +13,16 @@ function ProtectedLayout() {
   useEffect(() => {
     if (!navigationState?.key) return;
 
-    const inAuthGroup = segments[0] === '(tabs)';
     const inLoginGroup = segments[0] === 'login';
+    const isRoot = !segments[0] || (segments as string[]).length === 0;
     
     setTimeout(() => {
       if (!isAuthenticated && !inLoginGroup) {
         router.replace('/login');
-      } else if (isAuthenticated && !inAuthGroup) {
-        router.replace('/(tabs)');
+      } else if (isAuthenticated) {
+        if (inLoginGroup || isRoot) {
+          router.replace('/(tabs)');
+        }
       }
     }, 1);
   }, [isAuthenticated, segments, navigationState?.key]);
