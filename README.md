@@ -1,50 +1,52 @@
-# Welcome to your Expo app 👋
+# 🛒 Catálogo Interativo Mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Um aplicativo móvel desenvolvido com o objetivo de apresentar um aplicativo que lista produtos de uma loja divididos por gênero, contendo navegação em abas e proteção com Autenticação de rota.
 
-## Get started
+A aplicação foi construída com base nos métodos de interface mobile do ecossistema React.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 📸 Capturas de Tela
 
-2. Start the app
+<p align="center">
+  <img src="./docs/print-login.png" width="30%" />
+  <img src="./docs/print-home.png" width="30%" />
+  <img src="./docs/print-detalhes.png" width="30%" />
+</p>
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 🚀 Tecnologias Utilizadas
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **React Native & Expo:** Base estrutural do App usando as capacidades de construção de código único para rodar em Mobile Nativo local via Expo Go.
+- **Expo Router (File-Based Routing):** Utilizado de ponta-a-ponta (`_layout.tsx`, `index.tsx`), construindo a base de roteamentos dinâmicos (Stack vs Tabs) e interceptação (Middleware) no arquivo da raiz.
+- **Axios:** Cliente HTTP robusto utilizado via Instância Configurável na coleta dinâmica dos produtos originais de `dummyjson.com/products`.
+- **Redux Toolkit & React-Redux:** Isolamento inteligente de escopo em Árvore Global (`Store / AuthSlice`). O Redux atua neste catálogo exclusivamente de forma asserida como *Gatekeeper* responsável por engatilhar chaves virtuais e blindando qualquer tentativa de travessia do App não-logado.
+- **Strict TypeScript:** Garantia de segurança sintática em toda a execução (`Interface Products`, `RootState`, Assinaturas de Tipos Locais).
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## 🛠️ Instruções de Execução
 
-When you're ready, run:
-
+### 1. Clonar o repositório
 ```bash
-npm run reset-project
+git clone <URL_DO_SEU_REPOSITORIO_AQUI>
+cd catalogo-interativo
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Instalação das dependências
+```bash
+npm install
+```
 
-## Learn more
+### 3. Rodar o bundler e servidor
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 4. Visualizando na vida real
+Basta estar com seu aparelho mobile (Android ou iOS) conectado à mesma rede de Wi-Fi e baixar o aplicativo oficial gratuito **Expo Go** em sua loja de apps. Depois, abra o aplicativo e escaneie o código **QR CODE** que o comando acima irá gerar em seu terminal escuro.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Se preferir rodar no próprio navegador para inspeção mais rápida, apenas aperte a letra `w` no terminal em que digitou o start.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
