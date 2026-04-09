@@ -30,7 +30,7 @@ A aplicação foi construída com base nos métodos de interface mobile do ecoss
 
 ### 1. Clonar o repositório
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO_AQUI>
+git clone https://github.com/gguidiniz/catalogo-interativo.git
 cd catalogo-interativo
 ```
 
