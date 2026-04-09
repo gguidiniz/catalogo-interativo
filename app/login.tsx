@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { login } from '@/src/store/slices/authSlice';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,7 +31,7 @@ export default function LoginScreen() {
     }
 
     dispatch(login({ username }));
-    router.replace('/(tabs)/men');
+    router.replace('/(tabs)');
   };
 
   const usernameError = hasSubmitted && !username.trim();

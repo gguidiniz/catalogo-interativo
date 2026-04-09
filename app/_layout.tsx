@@ -13,7 +13,7 @@ function ProtectedLayout() {
     const inAuthGroup = segments[0] === '(tabs)';
     
     if (isAuthenticated && !inAuthGroup) {
-      router.replace('/(tabs)/men');
+      router.replace('/(tabs)');
     } else if (!isAuthenticated && inAuthGroup) {
       router.replace('/login');
     }
