@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     alignItems: 'center',
-    paddingTop: 100,
+    justifyContent: 'center',
+    paddingBottom: 40,
   },
   title: {
     color: '#fff',
